@@ -1,6 +1,9 @@
 class Node {
     int data;
     Node next;
+    Node(){
+        
+    }
 
     Node(int data1, Node next1) {
         this.data = data1;
@@ -14,6 +17,19 @@ class Node {
     @Override
     public String toString() {
         return data + (next != null ? " -> " + next.toString() : "");
+    }
+
+    public Node getNode(int[] arr){
+        Node head = new Node(arr[0]);
+        Node mover = head;
+    
+        for (int i =1;i<arr.length;i++){
+            Node temp = new Node(arr[i]);
+            mover.next = temp; // linking previous node and the next node
+            mover = temp; // moving the previous node to link with the next node
+
+        }
+        return head;
     }
 }
 
